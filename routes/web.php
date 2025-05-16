@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,13 +8,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/students', function () {
-    $students = [
-        ['name'=>'fahad', 'id'=>1, 'rank'=>90],
-        ['name'=>'taha', 'id'=>2, 'rank'=>30],
-    ];
-    return view('students.index', ['students' => $students]);
-});
+Route::get('/students', [StudentController::class, 'index'])->name('students');
 
 
 Route::get('students/create', function () {
