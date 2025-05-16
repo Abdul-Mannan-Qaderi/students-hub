@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Students Hub</title>
+  @vite('resources/css/app.css')
 </head>
-<body> 
-
+<body class="text-center "> 
   <header>
-    <nav>
+    <nav class="">
       <h1>Student Hub</h1>
-      <a href="/students">All Students</a>
-      <a href="/students/create">Create New Student</a>
+      <a href="/students" >All Students</a>
+      <a href="/students/create" >Create New Student</a>
     </nav>
   </header>
 
-  <main>
+  <main class="container">
     {{ $slot }}
   </main>
   
