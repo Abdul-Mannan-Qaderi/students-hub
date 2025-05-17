@@ -3,7 +3,7 @@
     <ul>
         @foreach ($students as $student)
             <li>
-                <x-card href="/students/{{ $student['id'] }}" :highlight="$student['rank'] > 70">
+                <x-card href="{{ route('students.show', $student->ids) }}" :highlight="$student['rank'] > 70">
                     <h3>{{$student['name']}}</h3>
                 </x-card>
             </li>
