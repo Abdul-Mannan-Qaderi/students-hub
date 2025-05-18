@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Tutor;
 class StudentController extends Controller
 {
     /**
@@ -23,7 +24,8 @@ class StudentController extends Controller
  
     public function create()
     {
-        return view('students.create');
+        $tutors = Tutor::all();
+        return view('students.create', ['tutors'=> $tutors]);
     }
     
   
