@@ -13,6 +13,13 @@
         <p><strong>Address </strong>{{ $student->tutor->address }}</p>
         <p><strong>About the Tutor </strong></p>
         <p>{{$student->tutor->description}}</p>
+
+        <form action="{{ route('students.destroy', $student->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn mt-4" type="submit">Delete Student</button>
+        </form>
+
     </div>
 
 

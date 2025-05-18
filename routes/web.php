@@ -13,4 +13,6 @@ Route::get('/students/create', [StudentController::class, 'create'])->name('stud
 Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
 Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 
+Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
+
 
