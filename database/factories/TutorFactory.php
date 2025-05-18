@@ -2,13 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Tutor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Student>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tutor>
  */
-class StudentFactory extends Factory
+class TutorFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,9 +18,8 @@ class StudentFactory extends Factory
     {
         return [
             'name'=>fake()->name(),
-            'bio'=>fake()->realText(500),
-            'rank'=>fake()->numberBetween(0, 100),
-            'tutor_id' => Tutor::inRandomOrder()->first()->id,
+            'description'=>fake()->paragraph(10),
+            'address'=>fake()->city(),
         ];
     }
 }

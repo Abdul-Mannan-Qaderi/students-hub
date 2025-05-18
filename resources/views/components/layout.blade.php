@@ -9,7 +9,7 @@
 <body class="text-center "> 
   <header>
     <nav class="">
-      <h1>Student Hub</h1>
+      <h1 class="text-red-500">Student Hub</h1>
       <a href="{{ route('students.index') }}" >All Students</a>
       <a href="{{ route('students.create') }}" >Create New Student</a>
     </nav>
