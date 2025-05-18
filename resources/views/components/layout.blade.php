@@ -7,6 +7,11 @@
   @vite('resources/css/app.css')
 </head>
 <body class="text-center "> 
+  @if (session('success'))
+      <div class="p-4 text-center bg-green-50 text-green-500 font-bold" id="flash">
+        {{ session('success') }}
+      </div>
+  @endif
   <header>
     <nav class="">
       <h1 class="text-red-500">Student Hub</h1>

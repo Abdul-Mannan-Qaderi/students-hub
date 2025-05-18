@@ -39,7 +39,7 @@ class StudentController extends Controller
         ]);
 
         Student::create($validated);
-        return redirect()->route('students.index');
+        return redirect()->route('students.index')->with('success', 'Student created successfully.');
     }
 
     
@@ -57,6 +57,6 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
         $student->delete();
-        return redirect()->route('students.index');
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully!');
     }
 }
