@@ -7,7 +7,6 @@
                     <div>
                         <h3>{{$student->name}}</h3>
                         <p>{{$student->tutor->name}}</p>
-                        <p>{{$student->tutor->description}}</p>
                     </div>
                 </x-card>
             </li>

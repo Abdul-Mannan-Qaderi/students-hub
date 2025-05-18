@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable = ['name', 'rank', 'bio'];
+    protected $fillable = ['name', 'rank', 'bio', 'tutor_id'];
     /** @use HasFactory<\Database\Factories\StudentFactory> */
     use HasFactory;
 
     public function tutor() {
-        return $this->belongsTo(Student::class);    
+        return $this->belongsTo(Tutor::class);    
     }
 }

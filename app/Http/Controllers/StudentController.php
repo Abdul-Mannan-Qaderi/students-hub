@@ -31,7 +31,15 @@ class StudentController extends Controller
   
     public function store(Request $request)
     {
-       //
+        $validated = $request->validate([
+            'name'=> 'required|string|max:255',
+            'rank'=> 'required|integer|min:0|max:100',
+            'bio'=> 'required|min:20|max:1000',
+            'tutor_id'=> 'required|exists:tutors,id',
+        ]);
+
+        Student::create($validated);
+        return redirect()->route('students.index');
     }
 
     
