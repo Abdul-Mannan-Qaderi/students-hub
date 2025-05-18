@@ -15,9 +15,9 @@ class StudentController extends Controller
         $students = Student::with('tutor')->orderBy('created_at', 'desc')->paginate(10);
         return view('students.index', ['students' => $students]);
     }
-    public function show(string $id)
+    public function show(Student $student)
     {
-        $student = Student::with('tutor')->findOrFail($id);
+        $student->load('tutor');
         return view('students.show', ['student'=> $student]);
     }
     
@@ -53,9 +53,8 @@ class StudentController extends Controller
         //
     }
 
-    public function destroy(string $id)
+    public function destroy(Student $student)
     {
-        $student = Student::findOrFail($id);
         $student->delete();
         return redirect()->route('students.index')->with('success', 'Student deleted successfully!');
     }
