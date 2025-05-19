@@ -43,14 +43,23 @@ class StudentController extends Controller
     }
 
     
-    public function edit(string $id)
+    public function edit(Student $student)
     {
-        //
+        $tutors = Tutor::all();
+        return view('students.edit', ['student'=>$student, 'tutors'=> $tutors]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'rank' => 'required|integer|min:0|max:100',
+            'bio' => 'required|string',
+            'tutor_id' => 'required|exists:tutors,id',
+        ]);
+
+        $student->update($validated);
+        return redirect()->route('students.index')->with('success', 'Student updated usccessfully!');
     }
 
     public function destroy(Student $student)

@@ -20,6 +20,8 @@
             <button class="btn mt-4" type="submit">Delete Student</button>
         </form>
 
+        <a href="{{ route('students.edit', $student->id) }}">Edit Student</a>
+
     </div>
 
 
